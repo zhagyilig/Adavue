@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>Document</title>
+</head>
+<body>
+  <!-- html start. -->
+  <!-- doc: https://cn.vuejs.org/v2/api/#v-on -->
+  <div id="app">
+    <!-- 1. .stop 修饰符是使用 -->
+    <div @click="button1">
+        ericzhang
+        <button @click.stop="button1">按钮1</button>
+    </div>
+  </div>
+  <!-- html end. -->
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例, 得到ViewModel.
+    const app = new Vue({
+    el: "#app",
+    data: {},
+    methods: {
+      button1 () {
+        console.log("button1");
+      }
+    }
+    });
+  </script>
+  <!-- scripts end. -->
+</body>
+</html>
