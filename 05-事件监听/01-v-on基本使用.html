@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title> v-on</title>
+</head>
+<body>
+  <!-- html start. -->
+  <div id="app">
+    <h2 :style="{color: 'red'}">{{ counter }}</h2>
+    <button v-on:click="add">+</button>
+    <!-- 语法糖 -->
+    <!-- https://cn.vuejs.org/v2/api/#v-on -->
+    <button @click="sub">-</button>
+  </div>
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例,得到 ViewModel
+    const app = new Vue({
+    el: "#app",
+    data: {
+      counter: 0
+    },
+    methods: {
+      // add: function () {
+      //   this.counter ++
+      // },
+      // 后面开始写 ES6 的语法
+      add(){
+          this.counter++
+      },
+      sub(){
+        this.counter--
+      }
+    }
+    });
+  </script>
+</body>
+</html>
