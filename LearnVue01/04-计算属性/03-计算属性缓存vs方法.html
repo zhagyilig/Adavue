@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>Document</title>
+</head>
+<body>
+  <!-- html start. -->
+  <div id="app">
+      <!-- 1. 直接拼接：语法过于繁琐  -->
+      <h2>{{ name }} {{ age }}</h2>
+
+      <!-- 2. 通过定义方法 -->
+      <h2>{{ getInfo() }}</h2>
+
+      <!-- 3.通过计算属性 -->
+      <h2>{{ info }}</h2>
+      <!-- 两种方式(methods/computed)的最终结果确实是完全相同的。然而，不同的是计算属性是
+        基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值。
+        这就意味着只要 name/age 还没有发生改变，多次访问 info 计算属性会立即返回之前的计算结果，
+        而不必再次执行函数 -->
+  </div>
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例,得到 ViewModel
+    const app = new Vue({
+    el: "#app",
+    data: {
+      name: "ericzhang1",
+      age: 25
+    },
+    methods: {
+      getInfo: function () {
+        return this.name + " " + this.age
+      }
+    },
+    computed: {
+      info: function () {
+        return this.name + " " + this.age
+      }
+    }
+    });
+  </script>
+</body>
+</html>
