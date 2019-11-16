@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>ericzhang | Vue</title>
+</head>
+<body>
+  <!-- html start. -->
+  <div id="app">
+    <ul>
+        <li>{{ info['name']}}</li>
+        <li>{{ info['age']}}</li>
+        <li>{{ info['height']}}</li>
+    </ul>
+
+    <!-- 2. 在遍历的过程中，如果只是获取一个值，那么获取到的是 value -->
+    <ul>
+      <li v-for="value in info">{{ value }}</li>
+    </ul>
+
+    <!-- 3. 获取对象的key 和 value 格式: (value, key) -->
+    <ul>
+      <li v-for="(value, key) in info">{{ key }}: {{ value }}</li>
+    </ul>
+
+    <!-- 4. 获取索引，当然，这不常用 -->
+    <ul>
+      <li v-for="(value, key, index) in info">{{ index }}:{{ key }}:{{value}}</li>
+    </ul>
+  </div>
+
+  <!-- html end. -->
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例, 得到ViewModel.
+    const app = new Vue({
+    el: "#app",
+    data: {
+      info: {
+        name: 'erizhang',
+        age: 25,
+        height: 180
+      }
+    },
+    methods: {}
+    });
+  </script>
+  <!-- scripts end. -->
+</body>
+</html>

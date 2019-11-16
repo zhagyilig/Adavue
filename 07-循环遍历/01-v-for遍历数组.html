@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>ericzhang | Vue</title>
+</head>
+<body>
+  <!-- html start. -->
+  <!-- 1. 在遍历的过程中，没有使用索引值(下标值) -->
+  <div id="app">
+    <ul>
+      <li v-for="name in names">{{ name }}</li>
+    </ul>
+
+    <!-- 2. 在遍历的过程中，使用索引值(下标值) --> 
+    <ul>
+      <li v-for="(name, index) in names">{{ index+1 }}-{{ name }}</li>
+    </ul>
+  </div>
+  <!-- html end. -->
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例, 得到ViewModel.
+    const app = new Vue({
+    el: "#app",
+    data: {
+      names: ['erizhnag', 'josns', 'kore']
+    },
+    methods: {}
+    });
+  </script>
+  <!-- scripts end. -->
+</body>
+</html>
