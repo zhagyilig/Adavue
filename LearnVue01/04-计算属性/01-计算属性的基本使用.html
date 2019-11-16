@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="ericzhang">
-  <title>v-bind</title>
+  <title>computed</title>
 </head>
 <body>
   <!-- html start. -->
   <div id="app">
-      <!-- doc: https://cn.vuejs.org/v2/guide/class-and-style.html -->
-      <h3 :style="{ color: activeColor, fontSize: fontSize + 'px' }">{{message}}</h3>
-      <h3 :style="getStyle()">{{message}}</h3>
+      <h2>{{ firstName + ' ' + lastName }}</h2>
+      <!-- 计算属性的方式实现   -->
+      <h2>{{ fullName }}</h2>
   </div>
 
   <!-- scripts start. -->
@@ -22,15 +22,18 @@
     const app = new Vue({
     el: '#app',
     data: {
-      message: 'hello, Vue',
-      activeColor: 'red',
-      fontSize: 30
+      firstName: 'ericzhang1',
+      lastName: 'ericzhang2'
     },
-    methods: {
-      getStyle: function () {
-        return { color: this.activeColor, fontSize: this.fontSize + 'px' }
+    // 官档: https://cn.vuejs.org/v2/guide/computed.html
+    computed: {
+      // 计算属性的 getter
+      fullName: function () {
+        // `this` 指向 vm 实例
+        return this.firstName + ' ' + this.lastName
       }
-    }
+    },
+    methods: {}
     });
   </script>
 </body>
