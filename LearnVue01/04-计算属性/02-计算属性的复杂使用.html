@@ -10,7 +10,7 @@
 <body>
   <!-- html start. -->
   <div id="app">
-    <h1>书籍的总价格: {{ totalPrice }}</h1>
+    <h1>书籍的总价格:<i :style="{ color: color }">{{ totalPrice }}</i></h1>
   </div>
 
   <!-- scripts start. -->
@@ -25,8 +25,10 @@
         {id: 101, name: 'go', price: 200},
         {id: 102, name: 'vue', price: 300},
         {id: 103, name: 'java', price: 400},
-      ]
+      ],
+      color: 'red'
     },
+    // 计算属性
     computed: {
       totalPrice: function () {
         let results = 0
@@ -37,7 +39,8 @@
         return results
       }
     },
-    methods: {}
+    methods: {
+    }
     });
   </script>
 </body>
