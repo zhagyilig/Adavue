@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-bind</title>
+</head>
+<body>
+  <div id ="app">
+    <!-- 错误的语法： 这里不能使用 Mustache 语法 -->
+    <!-- <img src="{{imgUrl}}" alt=""> -->
+
+    <!-- 正确的使用方式 -->
+    <img v-bind:src="imgUrl" alt="">
+    <a v-bind:href="aHref">百度一下</a>
+
+    <!-- 语法糖的写法 -->
+    <img :src="imgUrl" alt="">
+  </div>
+
+  <!-- scripts -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例,得到 ViewModel
+    const app = new Vue({
+    el: '#app',
+    data: {
+      imgUrl: 'https://img14.360buyimg.com/pop/s590x470_jfs/t1/81679/7/15250/99155/5dcd2e77E07e65241/9047ee45499cf2cc.jpg.webp',
+      aHref: 'https://www.baidu.com'
+    },
+    methods: {}
+    });
+  </script>
+</body>
+</html>
