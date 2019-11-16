@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>Document</title>
+</head>
+<body>
+  <!-- html start. -->
+  <div id="app">
+      <h2 v-if="isShow">{{ info }}</h2>
+      <h2 v-else>isShow是flase, 就显示</h2>
+  </div>
+  <!-- html end. -->
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例, 得到ViewModel.
+    const app = new Vue({
+    el: "#app",
+    data: {
+      name: 'ericzhnag',
+      age: 25,
+      isShow: true
+    },
+    methods: {},
+    computed: {
+      info () {
+        return this.name + " " + this.age
+      }
+      
+    }
+    });
+  </script>
+  <!-- scripts end. -->
+</body>
+</html>

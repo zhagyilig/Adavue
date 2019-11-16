@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>Document</title>
+</head>
+<body>
+  <!-- html start. -->
+  <!-- 当然，如果有大量的判断逻辑，更建议在计算属性中实现 -->
+  <div id="app">
+    <p v-if="socre>=90">优秀</p>
+    <p v-else-if="socre>=80">良好</p>
+    <p v-else-if="socre>=60">及格</p>
+    <p v-else="socre>60">差</p>
+
+  <!-- 使用计算属性实现 -->
+  <h3 :style="{ color: 'red'}">{{ result }}</h3>
+  </div>
+  <!-- html end. -->
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例, 得到ViewModel.
+    const app = new Vue({
+    el: "#app",
+    data: {
+      socre: 90
+    },
+    methods: {},
+    computed: {
+      result () {
+          let showMessage = ""
+          if (this.socre >= 90) {
+            showMessage = "优秀"
+          } else if (this.socre >= 80) {
+            showMessage = "良好"
+          } else if (this.socre >=60) {
+            showMessage = "及格"
+          } else {
+            showMessage = "差"
+          }
+          return showMessage
+      }
+    }
+    });
+  </script>
+  <!-- scripts end. -->
+</body>
+</html>
