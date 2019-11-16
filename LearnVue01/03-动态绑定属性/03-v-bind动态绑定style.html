@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>v-bind</title>
+</head>
+<body>
+  <!-- html start. -->
+  <div id="app">
+      <!-- doc: https://cn.vuejs.org/v2/guide/class-and-style.html -->
+      <h3 :style="{ color: activeColor, fontSize: fontSize + 'px' }">{{message}}</h3>
+      <h3 :style="getStyle()">{{message}}</h3>
+  </div>
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例,得到 ViewModel
+    const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello, Vue',
+      activeColor: 'red',
+      fontSize: 30
+    },
+    methods: {
+      getStyle: function () {
+        return { color: this.activeColor, fontSize: this.fontSize + 'px' }
+
+      }
+    }
+    });
+  </script>
+</body>
+</html>
