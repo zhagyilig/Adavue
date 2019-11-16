@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>ericzhang | Vue</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <!-- html start. -->
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in movies" 
+          :class="{active: currentIndex === index}" 
+          @click="liClick(index)">{{ item }}
+          <!-- 当currentIndex 等与0 时，默认第一个添加样式 -->
+          <!-- 传入index, 选择的电影的index -->
+      </li>
+    </ul>
+
+  </div>
+  <!-- html end. -->
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例, 得到ViewModel.
+    const app = new Vue({
+    el: "#app",
+    data: {
+      movies: [
+        '肖申克的救赎',
+        '阿甘正传',
+        '敢死队',
+        '速度与激情'
+      ],
+      currentIndex: 0
+    },
+    methods: {
+      liClick (index) {
+        return this.currentIndex = index
+      }
+    }
+    });
+  </script>
+  <!-- scripts end. -->
+</body>
+</html>
