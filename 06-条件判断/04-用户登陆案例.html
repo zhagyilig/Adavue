@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>用户登陆</title>
+</head>
+<body>
+  <!-- html start. -->
+  <div id="app">
+    <span v-if="isUserLogin">
+      <label for="weixin">微信登陆</label>
+      <input type="text" name="username" id="weixin" placeholder="微信登陆">
+    </span>
+    <span v-else>
+      <label for="qq">QQ登陆</label>
+      <input type="text" name="username" id="qq" placeholder="QQ登陆">
+    </span>
+    <button @click="isUserLogin = !isUserLogin">切换登陆方式</button>
+  </div>
+  <!-- html end. -->
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例, 得到ViewModel.
+    const app = new Vue({
+    el: "#app",
+    data: {
+      isUserLogin: true
+    },
+    methods: {}
+    });
+  </script>
+  <!-- scripts end. -->
+</body>
+</html>
