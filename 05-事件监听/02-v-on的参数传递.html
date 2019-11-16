@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>Document</title>
+</head>
+<body>
+  <!-- html start. -->
+  <div id="app">
+    <!-- 1. 事件调用的方法没有参数： 有无()是一样的结果 -->
+    <button @click="button1">按钮一</button>
+    <button @click="button1()">按钮一</button>
+
+    <!-- 2. 在事件定义时，写方法时省略了小括号，但是方法本身是需要一个参数的，这个时候，
+    vue 会默认将浏览器生产的 event 事件作为参数传入到方法 -->
+    <button @click="button2">按钮二</button>
+
+    <!-- 3. 方法定义时，我们需要 event 对象， 同时又需要其他参数 -->
+    <!-- 在调用方式，如何手动的获取到浏览器参数的 event 对象: $event -->
+    <button @click="button3('111', $event)">按钮三</button>
+  </div>
+  <!-- html end. -->
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例,得到 ViewModel
+    const app = new Vue({
+    el: "#app",
+    data: {},
+    methods: {
+      button1 () {
+        console.log("-----------");
+      },
+      button2 (event) {
+        console.log("-----------", event);
+      },
+      button3 (abc, event) {
+        console.log("-----------", abc, event);
+      }
+    }
+    });
+  </script>
+  <!-- scripts end. -->
+</body>
+</html>
