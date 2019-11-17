@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>ericzhang | Vue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- html start. -->
+  <div id="app">
+      <table>
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>书籍名称</th>
+            <th>出版日期</th>
+            <th>价格</th>
+            <th>购买数量</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  v-for="book in books">
+            <td>{{ book.id }}</td>
+            <td>{{ book.name }}</td>
+            <td>{{ book.data }}</td>
+            <td>{{ book.price | showPrice }}</td>
+            <td>
+              <button>-</button>
+              {{ book.count }}
+              <button>+</button>
+            </td>
+            <td><button>移除</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>总计: </h3>
+  </div>
+  <!-- html end. -->
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script src="main.js"></script>
+  <!-- scripts end. -->
+</body>
+</html>
