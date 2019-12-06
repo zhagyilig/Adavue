@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>ericzhang | Vue</title>
+</head>
+<body>
+  <!-- html start. -->
+  <div id="app">
+    <!-- 单选的情况 -->
+    <label for="argee">
+      <input type="checkbox" id="argee" v-model='isArgee'>同意协议
+    </label>
+    <button :disabled="!isArgee">下一步</button>
+
+    <!-- 多选的情况 -->
+    <input type="checkbox" value="篮球" v-model="hobbies">篮球
+    <input type="checkbox" value="排球" v-model="hobbies">排球
+    <input type="checkbox" value="乒乓球" v-model="hobbies">乒乓球
+    <h2>您的爱好是: {{ hobbies }}</h2>
+  </div>
+  <!-- html end. -->
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例, 得到ViewModel.
+    const app = new Vue({
+    el: "#app",
+    data: {
+      isArgee: false,  // 单选的时候是 bool 数据类型
+      hobbies: [] // 多选的时候是数组类型
+    },
+    methods: {}
+    });
+  </script>
+  <!-- scripts end. -->
+</body>
+</html>

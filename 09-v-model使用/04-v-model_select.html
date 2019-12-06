@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ericzhang">
+  <title>ericzhang | Vue</title>
+</head>
+<body>
+  <!-- html start. -->
+  <div id="app">
+      <select name="abc" v-model="fruit">
+          <option value="苹果1">苹果1</option>
+          <option value="苹果2">苹果2</option>
+          <option value="苹果3">苹果3</option>
+          <option value="苹果4">苹果4</option>
+      </select>
+      <h2>您选择的水果: {{ fruit }}</h2>
+      <br>
+      <select name="abc" v-model="fruits" multiple>
+          <option value="苹果1">苹果1</option>
+          <option value="苹果2">苹果2</option>
+          <option value="苹果3">苹果3</option>
+          <option value="苹果4">苹果4</option>
+      </select>
+      <h2>您选择的水果: {{ fruits }}</h2>
+  </div>
+  <!-- html end. -->
+
+  <!-- scripts start. -->
+  <script src="/Users/mac/venv/github/Adavue/js/vue.js"></script>
+  <script>
+    //创建Vue实例, 得到ViewModel.
+    const app = new Vue({
+    el: "#app",
+    data: {
+      fruit: "",
+      fruits: []
+    },
+    methods: {}
+    });
+  </script>
+  <!-- scripts end. -->
+</body>
+</html>
